@@ -6,13 +6,13 @@
 # Version 0.5   (I got to start somewhere)
 # cllsjd at gmail  Hopefully you can figure out how make this into an address that really works.
 
-from Tkinter import *
+import tkinter
+from tkinter import *
+from tkinter import messagebox
+from tkinter import filedialog
 import serial
 import time
 import os
-import tkMessageBox
-import Tkinter
-from tkFileDialog import askopenfilename
 
 # set jog distances
 X_jog= 0.5
@@ -162,7 +162,7 @@ class GUIFramework(Frame):
 
 # open file button command
     def getFileName(self):
-        self.filename = askopenfilename(filetypes=[("allfiles","*")])
+        self.filename = filedialog.askopenfilename(filetypes=[("allfiles","*")])
 ##        print self.filename
         self.fileBox.delete(1.0,'end')
         self.fileBox.insert('end', open(self.filename,'r').read())
